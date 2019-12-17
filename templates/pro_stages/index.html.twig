@@ -1,18 +1,32 @@
 {% extends 'base.html.twig' %}
 
 {% block titresPage %}
-<h1>Bienvenue sur la page d'accueil de Prostages</h1>
-<p>
+<h1><center>Bienvenue sur la page d'accueil de Prostages</h1>
 {% endblock %}
 {% block contenu %}
-Vous trouverez ci-dessous les dernièrs stages ajoutées sur ProStages.
-</p>
-<ul>
-  <li>
-    <a href="{{path('pro_stages_stages',{id:5})}}">stage 1</a>
-  </li>
-  <li>
-    <a href="{{path('pro_stages_stages',{id:152})}}">stage 2</a>
-  </li>
-</ul>
+<p><center>Derniers stages ajoutées sur ProStages.</p>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">N°</th>
+      <th scope="col">Mission</th>
+      <th scope="col">Entreprise</th>
+      <th scope="col">Formation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td><a href="{{path('pro_stages_stages',{id:5})}}">Refonte et mise à jour de l'intranet du service de production</td>
+      <td>Safran</td>
+      <td>DUT Informatique</td>
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td><a href="{{path('pro_stages_stages',{id:155})}}">Développement d'un viewer carthographique pour PC et tablettes</td>
+      <td>Safran</td>
+      <td>LP Programmation avancée</td>
+    </tr>
+  </tbody>
+</table>
 {% endblock %}
