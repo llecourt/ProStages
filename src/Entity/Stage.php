@@ -31,6 +31,11 @@ class Stage
      */
     private $emailContact;
 
+    /**
+     * @ORM\Column(type="string", length=100)
+     */
+    private $domaine;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -68,6 +73,18 @@ class Stage
     public function setEmailContact(string $emailContact): self
     {
         $this->emailContact = $emailContact;
+
+        return $this;
+    }
+
+    public function getDomaine(): ?string
+    {
+        return $this->domaine;
+    }
+
+    public function setDomaine(string $domaine): self
+    {
+        $this->domaine = $domaine;
 
         return $this;
     }
