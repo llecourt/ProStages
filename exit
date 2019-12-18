@@ -1,0 +1,143 @@
+commit 6344c056c17c57f38aff79489f680ccbd738276d
+Author: Leo Lecourt <leo.lecourt@iutbayonne.univ-pau.fr>
+Date:   Thu Dec 19 22:26:37 2019 +0100
+
+    Suppression des fichiers crées par crud (test hors TP)
+
+commit ef778c0f3ec6008a9123bdd05a9d4554789b26c5
+Author: Leo Lecourt <leo.lecourt@iutbayonne.univ-pau.fr>
+Date:   Thu Dec 19 19:40:16 2019 +0100
+
+    Ajout de l'affiche de l'attribut Formation dans Stage
+
+commit 87e15c7a67b2dd6465ad49fc00cd1fddc17382e1
+Author: Leo Lecourt <leo.lecourt@iutbayonne.univ-pau.fr>
+Date:   Thu Dec 19 19:27:29 2019 +0100
+
+    Modification de la vue index pour afficher les stages
+
+commit eedd2dda0991895258b048bc8324dc3d995fb259
+Author: Leo Lecourt <leo.lecourt@iutbayonne.univ-pau.fr>
+Date:   Thu Dec 19 18:26:04 2019 +0100
+
+    Ajout de formation + relations clé primaires - clé étrangères
+
+commit 0acfb5354e91ef7317690f483d2bcd361c106c7d
+Author: Leo Lecourt <leo.lecourt@iutbayonne.univ-pau.fr>
+Date:   Wed Dec 18 16:50:39 2019 +0100
+
+    Creation de 15 Entreprises avec faker + ajout dans la BD
+
+commit 3fea11b74b91b17c18d245547d295e676d4fd4db
+Author: Leo Lecourt <leo.lecourt@iutbayonne.univ-pau.fr>
+Date:   Wed Dec 18 16:22:58 2019 +0100
+
+    Installation de faker
+
+commit 3514fef8aa8d436c9e39f0641057fc8fc815102e
+Author: Leo Lecourt <leo.lecourt@iutbayonne.univ-pau.fr>
+Date:   Wed Dec 18 16:15:16 2019 +0100
+
+    Ajout fixture + creation module test en BD
+
+commit 3573faa0473daa2ecda5376a2469e0f530a56dae
+Author: Leo Lecourt <leo.lecourt@iutbayonne.univ-pau.fr>
+Date:   Wed Dec 18 15:59:08 2019 +0100
+
+    Migration relation stage-entreprise vers BDD
+
+commit 363694df0f52dff6495f98548a03b1fae50cbf68
+Author: Leo Lecourt <leo.lecourt@iutbayonne.univ-pau.fr>
+Date:   Wed Dec 18 15:34:28 2019 +0100
+
+    Ajout relation stage-entreprise
+
+commit ac2b92f5a7b3d5ccaa110922c307c5c89415ea38
+Author: Leo Lecourt <leo.lecourt@iutbayonne.univ-pau.fr>
+Date:   Wed Dec 18 13:50:37 2019 +0100
+
+    Migration relation stage-formation
+
+commit 52fec8cc2771e2b25bcf66c518b44d4dc23643e7
+Author: Leo Lecourt <leo.lecourt@iutbayonne.univ-pau.fr>
+Date:   Wed Dec 18 13:47:16 2019 +0100
+
+    Ajout relation stage-formation
+
+commit 313660550285c2157e4412b0b7bd163e1af0372d
+Author: Leo Lecourt <leo.lecourt@iutbayonne.univ-pau.fr>
+Date:   Wed Dec 18 13:36:22 2019 +0100
+
+    Ajout de l'attribut domaine dans Stage
+
+commit d35121e19980463230564b84e4a82159f5b62ceb
+Author: Leo Lecourt <leo.lecourt@iutbayonne.univ-pau.fr>
+Date:   Wed Dec 18 13:22:18 2019 +0100
+
+    Creation entitées et migration
+
+commit 959b2da8ab279c0010ecb8ab11b27c1c8c28a4c7
+Author: Leo Lecourt <leo.lecourt@iutbayonne.univ-pau.fr>
+Date:   Tue Dec 17 16:56:20 2019 +0100
+
+    Integration bootstrap
+
+commit 88699156ca4b09a90a961c60515ce5f9ef10c9ef
+Author: Leo Lecourt <leo.lecourt@iutbayonne.univ-pau.fr>
+Date:   Tue Nov 19 14:44:23 2019 +0100
+
+    Intégration d'une template modifiée
+
+commit 13f2296c2c2feaecfcaf9872664e0ed7bebcd4fb
+Author: Leo Lecourt <leo.lecourt@iutbayonne.univ-pau.fr>
+Date:   Tue Nov 19 14:21:44 2019 +0100
+
+    Intégration du template de base fourni par Symfony
+
+commit 0dfdd9204c42be7d5e7eb04b56219f4f441c1b9d
+Author: Leo Lecourt <leo.lecourt@iutbayonne.univ-pau.fr>
+Date:   Tue Nov 19 13:58:24 2019 +0100
+
+    ajout de liens sur page d'accueil
+
+commit 2e7512d78caefec66d412e49a5871240ea3753dc
+Author: Leo Lecourt <leo.lecourt@iutbayonne.univ-pau.fr>
+Date:   Tue Nov 19 13:37:32 2019 +0100
+
+    fin du TP1
+
+commit 4c1504b98422ceb2e1c1c6e415d377f803545102
+Author: Leo Lecourt <leo.lecourt@iutbayonne.univ-pau.fr>
+Date:   Tue Nov 19 13:36:11 2019 +0100
+
+    fin du TP1
+
+commit 09375aa6222c50c409ad63337c2433ca2d731b36
+Author: Leo Lecourt <leo.lecourt@iutbayonne.univ-pau.fr>
+Date:   Fri Nov 15 13:53:52 2019 +0100
+
+    modif page d'accueil
+
+commit 1b534cc7765b7c9fd49325e57784512d371a8756
+Author: Leo Lecourt <leo.lecourt@iutbayonne.univ-pau.fr>
+Date:   Fri Nov 15 09:10:54 2019 +0100
+
+    modif url page d'accueil
+
+commit 3a382644e15530ae19bd84a0d86c4e437ea553c5
+Author: Leo Lecourt <leo.lecourt@iutbayonne.univ-pau.fr>
+Date:   Fri Nov 15 09:04:38 2019 +0100
+
+    modif route controller
+
+commit e0f0ea4eebf19b01155c5869c208ce5294d3358e
+Author: Leo Lecourt <leo.lecourt@iutbayonne.univ-pau.fr>
+Date:   Fri Nov 15 08:54:30 2019 +0100
+
+    creation controller
+
+commit 7f197a0b5ea719d3b61a921f56606d5ea1e49d6a
+Author: Leo Lecourt <leo.lecourt@iutbayonne.univ-pau.fr>
+Date:   Fri Nov 15 08:29:27 2019 +0100
+
+    installation symfony

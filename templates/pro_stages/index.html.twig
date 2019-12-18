@@ -9,23 +9,30 @@
   <thead>
     <tr>
       <th scope="col">N°</th>
-      <th scope="col">Mission</th>
-      <th scope="col">Entreprise</th>
+      <th scope="col">Titre</th>
+      <th scope="col">Description</th>
+      <th scope="col">Email contact</th>
+      <th scope="col">Domaine</th>
       <th scope="col">Formation</th>
+      <th scope="col">Entreprise</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th scope="row">1</th>
-      <td><a href="{{path('pro_stages_stages',{id:5})}}">Refonte et mise à jour de l'intranet du service de production</td>
-      <td>Safran</td>
-      <td>DUT Informatique</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td><a href="{{path('pro_stages_stages',{id:155})}}">Développement d'un viewer carthographique pour PC et tablettes</td>
-      <td>Safran</td>
-      <td>LP Programmation avancée</td>
+      {% for stage in listeStages %}
+      <td> {{stage.id}} </td>
+      <td> {{stage.titre}} </td>
+      <td> {{stage.description}} </td>
+      <td> {{stage.emailContact}} </td>
+      <td> {{stage.domaine}} </td>
+      <td>
+      {% for form in stage.formation %}
+      {{ form.nom }}<br/>
+      {% endfor %}
+      </td>
+      <td> {{stage.entreprise.nom}} </td>
+     </tr>
+      {% endfor %}
     </tr>
   </tbody>
 </table>
