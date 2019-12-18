@@ -43,6 +43,12 @@ class Stage
      */
     private $formation;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Entreprise", inversedBy="stages")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $entreprise;
+
     public function __construct()
     {
         $this->formation = new ArrayCollection();
@@ -123,6 +129,18 @@ class Stage
         if ($this->formation->contains($formation)) {
             $this->formation->removeElement($formation);
         }
+
+        return $this;
+    }
+
+    public function getEntreprise(): ?Entreprise
+    {
+        return $this->entreprise;
+    }
+
+    public function setEntreprise(?Entreprise $entreprise): self
+    {
+        $this->entreprise = $entreprise;
 
         return $this;
     }
