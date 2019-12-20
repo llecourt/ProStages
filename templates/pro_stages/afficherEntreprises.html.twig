@@ -3,3 +3,30 @@
 {% block titresPage %}
 <h1><center>Stages triés par entreprise</h1>
 {% endblock %}
+{% block contenu %}
+<p><center>Liste des entreprises</p>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">N°</th>
+      <th scope="col">Nom</th>
+      <th scope="col">Activité</th>
+      <th scope="col">Adresse</th>
+      <th scope="col">Lien site web</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      {% for entreprise in listeEntreprise %}
+      <td> {{entreprise.id}} </td>
+      <td> <a href="/entreprise/{{entreprise.id}}"> {{entreprise.nom}} </td>
+      <td> {{entreprise.activite}} </td>
+      <td> {{entreprise.adresse}} </td>
+      <td> <a href="http://{{entreprise.lienSiteWeb}}"> {{entreprise.lienSiteWeb}} </td>
+      <td>
+     </tr>
+      {% endfor %}
+    </tr>
+  </tbody>
+</table>
+{% endblock %}

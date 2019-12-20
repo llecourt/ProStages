@@ -4,4 +4,21 @@
 <h1><center>Stages triés par formations</h1>
 {% endblock %}
 {% block contenu %}
+<p><center>Liste des formations</p>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">N°</th>
+      <th scope="col">Nom</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for formation in listeFormations %}
+    <tr> 
+      <td> {{formation.id}} </td>
+      <td> <a href="/formation/{{formation.id}}"> {{formation.nom}} </td> 
+     </tr>
+    {% endfor %}
+  </tbody>
+</table>
 {% endblock %}
