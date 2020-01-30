@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block titresPage %}
+<h1><center>Stage</h1>
+{% endblock %}
+
+{% block body %}
+<h2> Titre : {{stage.titre}} </h2>
+<h2>Domaine : {{stage.domaine}} </h2>
+<h2>Description : {{stage.description}} </h2>
+<h2>Email de contact : {{stage.email}} </h2>
+{% endblock %}
