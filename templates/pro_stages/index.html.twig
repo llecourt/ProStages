@@ -5,35 +5,13 @@
 {% endblock %}
 {% block contenu %}
 <p><center>Derniers stages ajoutées sur ProStages.</p>
-<table class="table">
-  <thead>
-    <tr>
-      <th scope="col">N°</th>
-      <th scope="col">Titre</th>
-      <th scope="col">Description</th>
-      <th scope="col">Email contact</th>
-      <th scope="col">Domaine</th>
-      <th scope="col">Formation</th>
-      <th scope="col">Entreprise</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      {% for stage in listeStages %}
-      <td> {{stage.id}} </td>
-      <td> {{stage.titre}} </td>
-      <td> {{stage.description}} </td>
-      <td> {{stage.emailContact}} </td>
-      <td> {{stage.domaine}} </td>
-      <td>
-      {% for form in stage.formation %}
-      {{ form.nom }}<br/>
-      {% endfor %}
-      </td>
-      <td> {{stage.entreprise.nom}} </td>
-     </tr>
-      {% endfor %}
-    </tr>
-  </tbody>
-</table>
+<ul class="list-group">
+    {% for stage in listeStages %}
+	<li class="list-group-item">
+	<a href="stage/{{stage.id}}">
+    {{stage.titre}} - {{stage.entreprise.nom}} <br/>
+	</a>
+	</li>
+    {% endfor %}
+<ul>
 {% endblock %}
