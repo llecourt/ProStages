@@ -31,12 +31,12 @@ class ProStagesController extends AbstractController
     }
 
     /**
-     * @Route("/entreprise/{id}", name="pro_stages_entreprise_en_particulier")
+     * @Route("/entreprise/{nom}", name="pro_stages_entreprise_en_particulier")
      */
-    public function afficherEntreprise($id)
+    public function afficherEntreprise($nom)
     {
         $rep=$this->getDoctrine()->getRepository(Stage::class);
-        $stages=$rep->findBy(["entreprise"=>$id]);
+        $stages=$rep->findStagesEntreprise($nom);
         return $this->render('pro_stages/afficherStagesEntreprise.html.twig',["listeStages" => $stages]);
     }
 

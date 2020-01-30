@@ -19,7 +19,7 @@
     <tr>
       {% for entreprise in listeEntreprise %}
       <td> {{entreprise.id}} </td>
-      <td> <a href="/entreprise/{{entreprise.id}}"> {{entreprise.nom}} </td>
+      <td> <a href="/entreprise/{{entreprise.nom}}"> {{entreprise.nom}} </td>
       <td> {{entreprise.activite}} </td>
       <td> {{entreprise.adresse}} </td>
       <td> <a href="http://{{entreprise.lienSiteWeb}}"> {{entreprise.lienSiteWeb}} </td>
