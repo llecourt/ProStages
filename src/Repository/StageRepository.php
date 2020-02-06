@@ -38,6 +38,7 @@ class StageRepository extends ServiceEntityRepository
     {
         $gestionnaireEntite = $this->getEntityManager();
 		$requete = $gestionnaireEntite->createQuery('SELECT s, f FROM App\Entity\Stage s JOIN s.formation f WHERE f.nom = :formation');
+		$requete->setParameter('formation', $formation);
 		return $requete->execute();
     }
 	
