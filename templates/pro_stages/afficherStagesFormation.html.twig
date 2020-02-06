@@ -21,7 +21,7 @@
     <tr>
       {% for stage in listeStages %}
       <td> {{stage.id}} </td>
-      <td> {{stage.titre}} </td>
+      <td> <a href="/stage/{{stage.id}}"> {{stage.titre}} </a> </td>
       <td> {{stage.description}} </td>
       <td> {{stage.emailContact}} </td>
       <td> {{stage.domaine}} </td>

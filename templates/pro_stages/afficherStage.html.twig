@@ -4,9 +4,33 @@
 <h1><center>Stage</h1>
 {% endblock %}
 
-{% block body %}
-<h2> Titre : {{stage.titre}} </h2>
-<h2>Domaine : {{stage.domaine}} </h2>
-<h2>Description : {{stage.description}} </h2>
-<h2>Email de contact : {{stage.email}} </h2>
+{% block contenu %}
+<div class="card">
+	<div class="card-title">
+		<h3><strong> {{stage.titre}} </strong></h3>
+	</div>
+	<div class="card-body">
+		<h5><strong>Domaine :</strong> {{stage.domaine}} </h5>
+		<h5><strong>Description :</strong> {{stage.description}} </h5>
+		<h5><strong>Email de contact :</strong> {{stage.emailContact}} </h5>
+	</div>
+</div>
+<div class="card">
+	<div class="card-title">
+		<h3><strong> Formation </strong></h3>
+	</div>
+	<div class="card-body">
+		{% for formation in stage.formation %}
+		<h5>{{formation.nom}}</h5>
+		{% endfor %}
+	</div>
+</div>
+<div class="card">
+	<div class="card-title">
+		<h3><strong> Entreprise </strong></h3>
+	</div>
+	<div class="card-body">
+		<h5><a href="/entreprise/{{stage.entreprise.nom}}"> {{stage.entreprise.nom}} </a></h5>
+	</div>
+</div>
 {% endblock %}
