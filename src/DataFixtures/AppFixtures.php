@@ -21,7 +21,8 @@ class AppFixtures extends Fixture
         $formation->setNom($form);
         $manager->persist($formation);
 		// création d'entreprises
-        $nbEntreprises=$faker->numberBetween(3,7);
+        $nbEntreprises=$faker->numberBetween(5,7);
+		for($i=1; $i<=$nbEntreprises; $i++){
 		$entreprise = new Entreprise();
             $entreprise->setNom($faker->company());
             $entreprise->setActivite($faker->jobTitle());
@@ -29,7 +30,7 @@ class AppFixtures extends Fixture
             $entreprise->setLienSiteWeb($faker->regexify('www\.'.$entreprise->getNom().'\.com'));
             $manager->persist($entreprise);
             // création de stages liées à une formation et à une entreprise
-            $nbStages=$faker->numberBetween(1,2);
+            $nbStages=$faker->numberBetween(2,3);
             for($y=1; $y<=$nbStages; $y++){
                 $stage = new Stage();
                 $stage->setTitre($faker->jobTitle());
@@ -46,4 +47,5 @@ class AppFixtures extends Fixture
 			
 			 $manager->flush();
 		}
-	} 
+	}
+}	

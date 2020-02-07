@@ -5,9 +5,12 @@
 {% endblock %}
 
 {% block contenu %}
+<div class="p-3 border bg-light">
 <div class="card">
 	<div class="card-title">
+	<div class="p-3 border bg-light">
 		<h3><strong> {{stage.titre}} </strong></h3>
+	</div>
 	</div>
 	<div class="card-body">
 		<h5><strong>Domaine :</strong> {{stage.domaine}} </h5>
@@ -15,9 +18,13 @@
 		<h5><strong>Email de contact :</strong> {{stage.emailContact}} </h5>
 	</div>
 </div>
+</div>
+<div class="p-3 border bg-light">
 <div class="card">
 	<div class="card-title">
+	<div class="p-3 border bg-light">
 		<h3><strong> Formation </strong></h3>
+	</div>
 	</div>
 	<div class="card-body">
 		{% for formation in stage.formation %}
@@ -25,12 +32,17 @@
 		{% endfor %}
 	</div>
 </div>
+</div>
+<div class="p-3 border bg-light">
 <div class="card">
 	<div class="card-title">
+	<div class="p-3 border bg-light">
 		<h3><strong> Entreprise </strong></h3>
+	</div>
 	</div>
 	<div class="card-body">
 		<h5><a href="/entreprise/{{stage.entreprise.nom}}"> {{stage.entreprise.nom}} </a></h5>
 	</div>
+</div>
 </div>
 {% endblock %}
