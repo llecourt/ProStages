@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block titresPage %}
+<h1><center>Creer une nouvelle entreprise</center></h1>
+{% endblock %}
+{% block contenu %}
+<center>
+<div class="card">
+	<div class="card-body">
+	{{ form_start(vueFormulaire) }}
+		{{ form_widget(vueFormulaire) }}
+		<button type="submit"> Enregistrer </button>
+	{{ form_end(vueFormulaire) }}
+	</div>
+</div>
+</center>
+{% endblock %}

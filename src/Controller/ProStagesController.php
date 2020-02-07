@@ -10,6 +10,7 @@ use App\Entity\Formation;
 use App\Repository\StageRepository;
 use App\Repository\FormationRepository;
 use App\Repository\EntrepriseRepository;
+use Symfony\Component\HttpFoundation\Request;
 
 class ProStagesController extends AbstractController
 {
@@ -59,5 +60,21 @@ class ProStagesController extends AbstractController
     public function afficherStage($id, StageRepository $stageRepo)
     {
         return $this->render('pro_stages/afficherStage.html.twig',['stage' => $stageRepo->find($id)]);
+    }
+	
+	/**
+     * @Route("/creer-entreprise", name="pro_stages_creer_entreprise")
+     */
+    public function creerStage(Request $requete)
+    {
+		$entreprise = new Entreprise();
+		$formulaireEntreprise = $this->CreateFormBuilder($entreprise)
+									->add('nom')
+									->add('activite')
+									->add('adresse')
+									->add('lienSiteWeb')
+									->getForm();
+		$formulaireEntreprise->handleRequest($requete);		
+        return $this->render('pro_stages/nouvelleEntreprise.html.twig',['vueFormulaire' => $formulaireEntreprise->createView()]);
     }
 }
