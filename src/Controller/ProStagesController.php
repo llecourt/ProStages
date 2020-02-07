@@ -85,4 +85,25 @@ class ProStagesController extends AbstractController
 		
         return $this->render('pro_stages/nouvelleEntreprise.html.twig',['vueFormulaire' => $formulaireEntreprise->createView()]);
     }
+	/**
+     * @Route("/modifier-entreprise/{id}", name="pro_stages_creer_entreprise")
+     */
+	public function modifierStage(Request $requete, Entreprise $entreprise){
+		$formulaireEntreprise = $this->CreateFormBuilder($entreprise)
+									->add('nom')
+									->add('activite')
+									->add('adresse')
+									->add('lienSiteWeb')
+									->getForm();
+		$formulaireEntreprise->handleRequest($requete);
+		// gestion de l'ajout du formulaire en BD
+		if($formulaireEntreprise->isSubmitted()){
+			$manager = $this->getDoctrine()->getManager();
+			$manager->persist($entreprise);
+			$manager->flush();
+			return $this->redirectToRoute('pro_stages_entreprises');
+		}
+		
+    return $this->render('pro_stages/modifierEntreprise.html.twig',['vueFormulaire' => $formulaireEntreprise->createView()]);
+	}
 }
