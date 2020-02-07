@@ -74,7 +74,15 @@ class ProStagesController extends AbstractController
 									->add('adresse')
 									->add('lienSiteWeb')
 									->getForm();
-		$formulaireEntreprise->handleRequest($requete);		
+		$formulaireEntreprise->handleRequest($requete);
+		// gestion de l'ajout du formulaire en BD
+		if($formulaireEntreprise->isSubmitted()){
+			$manager = $this->getDoctrine()->getManager();
+			$manager->persist($entreprise);
+			$manager->flush();
+			return $this->redirectToRoute('pro_stages_entreprises');
+		}
+		
         return $this->render('pro_stages/nouvelleEntreprise.html.twig',['vueFormulaire' => $formulaireEntreprise->createView()]);
     }
 }
