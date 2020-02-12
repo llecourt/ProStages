@@ -7,7 +7,7 @@
 <center>
 <div class="p-5">
 	<div class="p-5 border bg-light">
-	{{ form_start(vueFormulaire) }}
+	{{ form_start(vueFormulaire, { 'attr' : {'novalidate':'novalidate'}} ) }}
 		{{ form_widget(vueFormulaire) }}
 		<button type="submit"> Enregistrer </button>
 	{{ form_end(vueFormulaire) }}
