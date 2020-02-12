@@ -5,13 +5,16 @@
 {% endblock %}
 {% block contenu %}
 <center>
-<div class="card">
-	<div class="card-body">
-	{{ form_start(vueFormulaire) }}
-		{{ form_widget(vueFormulaire) }}
+<div class="p-5">
+	<div class="p-5 border bg-light">
+	{{ form_start(vueFormulaire, { 'attr' : {'novalidate':'novalidate'}} ) }}
+		{{ form_row(vueFormulaire.nom) }}
+		{{ form_row(vueFormulaire.activite) }}
+		{{ form_row(vueFormulaire.adresse) }}
+		{{ form_row(vueFormulaire.lienSiteWeb) }}
 		<button type="submit"> Enregistrer </button>
 	{{ form_end(vueFormulaire) }}
-	</div>
+</div>
 </div>
 </center>
 {% endblock %}

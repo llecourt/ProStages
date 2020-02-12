@@ -76,7 +76,7 @@ class ProStagesController extends AbstractController
 									->getForm();
 		$formulaireEntreprise->handleRequest($requete);
 		// gestion de l'ajout du formulaire en BD
-		if($formulaireEntreprise->isSubmitted()){
+		if($formulaireEntreprise->isSubmitted() && $formulaireEntreprise->isValid()){
 			$manager = $this->getDoctrine()->getManager();
 			$manager->persist($entreprise);
 			$manager->flush();
