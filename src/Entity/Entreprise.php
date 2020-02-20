@@ -21,6 +21,7 @@ class Entreprise
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="Le nom de l'entreprise ne peut pas être vide")
 	 * @Assert\Length(
 	 * min=4,
 	 * minMessage="Le nom de l'entreprise doit faire au moins {{ limit }} caractères"
@@ -36,6 +37,7 @@ class Entreprise
 
     /**
      * @ORM\Column(type="string", length=100)
+     * @Assert\NotBlank(message="L'adresse ne peut pas être vide")
 	 * @Assert\Regex(pattern="#^[1-9][0-9]{0,2}#", message="Le numero de rue semble incorrect")
 	 * @Assert\Regex(pattern="#[allée, voie, rue]#", message="Le type de route/voie semble incorrect")
 	 * @Assert\Regex(pattern="#[0-9]{5}#", message="Le code postal semble incorrect")

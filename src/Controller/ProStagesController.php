@@ -11,6 +11,7 @@ use App\Repository\StageRepository;
 use App\Repository\FormationRepository;
 use App\Repository\EntrepriseRepository;
 use Symfony\Component\HttpFoundation\Request;
+use App\Form\EntrepriseType;
 
 class ProStagesController extends AbstractController
 {
@@ -68,13 +69,9 @@ class ProStagesController extends AbstractController
     public function creerStage(Request $requete)
     {
 		$entreprise = new Entreprise();
-		$formulaireEntreprise = $this->CreateFormBuilder($entreprise)
-									->add('nom')
-									->add('activite')
-									->add('adresse')
-									->add('lienSiteWeb')
-									->getForm();
-		$formulaireEntreprise->handleRequest($requete);
+		$formulaireEntreprise = $this->CreateForm(EntrepriseType::class, $entreprise);
+        $formulaireEntreprise->handleRequest($requete);
+        
 		// gestion de l'ajout du formulaire en BD
 		if($formulaireEntreprise->isSubmitted() && $formulaireEntreprise->isValid()){
 			$manager = $this->getDoctrine()->getManager();
@@ -88,14 +85,11 @@ class ProStagesController extends AbstractController
 	/**
      * @Route("/modifier-entreprise/{id}", name="pro_stages_modifier_entreprise")
      */
-	public function modifierStage(Request $requete, Entreprise $entreprise){
-		$formulaireEntreprise = $this->CreateFormBuilder($entreprise)
-									->add('nom')
-									->add('activite')
-									->add('adresse')
-									->add('lienSiteWeb')
-									->getForm();
-		$formulaireEntreprise->handleRequest($requete);
+    public function modifierStage(Request $requete, Entreprise $entreprise)
+    {
+		$formulaireEntreprise = $this->CreateForm(EntrepriseType::class, $entreprise);
+        $formulaireEntreprise->handleRequest($requete);
+        
 		// gestion de l'ajout du formulaire en BD
 		if($formulaireEntreprise->isSubmitted() && $formulaireEntreprise->isValid()){
 			$manager = $this->getDoctrine()->getManager();
