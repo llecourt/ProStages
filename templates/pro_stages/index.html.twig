@@ -4,19 +4,19 @@
 <h1><center>Bienvenue sur la page d'accueil de Prostages</h1>
 {% endblock %}
 {% block contenu %}
-<div class="p-3 border bg-light">
+
+<div class="p-3">
 <p><center>Derniers stages ajoutées sur ProStages</center></p>
 <a href="/creer-stage"><input type="button" class="btn btn-primary" value="Creer un nouveau stage"></a>
 </div>
-<ul class="list-group">
-	<div class="p-3 border bg-light">
-    {% for stage in listeStages %}
-	<li class="list-group-item">
-	<a href="stage/{{stage.id}}">
-    {{stage.titre}} - {{stage.entreprise.nom}} <br/>
-	</a>
-	</li>
-    {% endfor %}
-	</div>
-</ul>
+
+{% for stage in listeStages %}
+    <div class="card">
+  	<div class="card-body">
+    <h5 class="card-title">{{stage.titre}} - {{stage.entreprise.nom}}</h5>
+    <p class="card-text">{{stage.description}}</p>
+    <a href="stage/{{stage.id}}" class="btn btn-primary">Consulter le stage</a>
+  </div>
+</div>
+{% endfor %}
 {% endblock %}
