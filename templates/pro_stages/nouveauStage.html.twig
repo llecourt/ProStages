@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block titresPage %}
+<h1><center>Ajouter un stage</center></h1>
+{% endblock %}
+{% block contenu %}
+<div class="row">
+<div class="col md-4"></div>
+<div class="col md-4">
+<div class="p-4">
+<div class="card">
+	{{ form_start(vueFormulaire, { 'attr' : {'novalidate':'novalidate'}} ) }}
+        <div class="p-2 border bg-light">
+        {{ form_row(vueFormulaire.titre) }}
+        {{ form_row(vueFormulaire.description) }}
+        {{ form_row(vueFormulaire.emailContact) }}
+        {{ form_row(vueFormulaire.domaine) }}
+        </div>
+        <div class="p-2 border bg-light">
+        {{ form_row(vueFormulaire.entreprise) }}
+        </div>
+        <div class="p-2 border bg-light">
+        {{ form_row(vueFormulaire.formation) }}
+        </div>
+        <div class="p-2">
+		<button type="submit"> Enregistrer </button>
+        </div>
+	{{ form_end(vueFormulaire) }}
+</div>
+</div>
+</div>
+<div class="col md-4"></div>
+{% endblock %}

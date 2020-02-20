@@ -12,6 +12,8 @@ use App\Repository\FormationRepository;
 use App\Repository\EntrepriseRepository;
 use Symfony\Component\HttpFoundation\Request;
 use App\Form\EntrepriseType;
+use App\Form\StageType;
+use App\Form\FormationType;
 
 class ProStagesController extends AbstractController
 {
@@ -66,7 +68,7 @@ class ProStagesController extends AbstractController
 	/**
      * @Route("/creer-entreprise", name="pro_stages_creer_entreprise")
      */
-    public function creerStage(Request $requete)
+    public function creerEntreprise(Request $requete)
     {
 		$entreprise = new Entreprise();
 		$formulaireEntreprise = $this->CreateForm(EntrepriseType::class, $entreprise);
@@ -99,5 +101,25 @@ class ProStagesController extends AbstractController
 		}
 		
     return $this->render('pro_stages/modifierEntreprise.html.twig',['vueFormulaire' => $formulaireEntreprise->createView()]);
-	}
+    }
+
+	/**
+     * @Route("/creer-stage", name="pro_stages_creer_stage")
+     */
+    public function creerStage(Request $requete)
+    {
+		$stage = new Stage();
+		$form = $this->CreateForm(StageType::class, $stage);
+        $form->handleRequest($requete);
+        
+		// gestion de l'ajout du formulaire en BD
+		if($form->isSubmitted() && $form->isValid()){
+			$manager = $this->getDoctrine()->getManager();
+			$manager->persist($stage);
+			$manager->flush();
+			return $this->redirectToRoute('pro_stages_accueil');
+		}
+		
+        return $this->render('pro_stages/nouveauStage.html.twig', ['vueFormulaire' => $form->createView()]);
+    }
 }
