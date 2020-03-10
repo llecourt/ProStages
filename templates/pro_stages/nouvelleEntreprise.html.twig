@@ -4,17 +4,21 @@
 <h1><center>Creer une nouvelle entreprise</center></h1>
 {% endblock %}
 {% block contenu %}
-<center>
-<div class="p-5">
-	<div class="p-5 border bg-light">
+<div class="row">
+<div class="col md-4"></div>
+<div class="col md-4">
+<div class="p-4">
+	<div class="card">
 	{{ form_start(vueFormulaire, { 'attr' : {'novalidate':'novalidate'}} ) }}
+	<div class="p-2 border bg-light">
 		{{ form_row(vueFormulaire.nom) }}
 		{{ form_row(vueFormulaire.activite) }}
 		{{ form_row(vueFormulaire.adresse) }}
 		{{ form_row(vueFormulaire.lienSiteWeb) }}
+		</div>
+		<div class="p-2">
 		<button type="submit"> Enregistrer </button>
 	{{ form_end(vueFormulaire) }}
 </div>
 </div>
-</center>
 {% endblock %}
