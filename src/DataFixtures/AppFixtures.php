@@ -7,6 +7,7 @@ use Doctrine\Common\Persistence\ObjectManager;
 use App\Entity\Entreprise;
 use App\Entity\Stage;
 use App\Entity\Formation;
+use App\Entity\User;
 
 class AppFixtures extends Fixture
 {
@@ -23,7 +24,7 @@ class AppFixtures extends Fixture
 		// création d'entreprises
         $nbEntreprises=$faker->numberBetween(5,7);
 		for($i=1; $i<=$nbEntreprises; $i++){
-		$entreprise = new Entreprise();
+		    $entreprise = new Entreprise();
             $entreprise->setNom($faker->company());
             $entreprise->setActivite($faker->jobTitle());
             $entreprise->setAdresse($faker->streetAddress());
@@ -43,9 +44,20 @@ class AppFixtures extends Fixture
                 $entreprise->addStage($stage);
                 $manager->persist($stage);
             }
-			}
-			
-			 $manager->flush();
-		}
+        }
+    }
+    $user1 = new User();
+    $user1->setUsername("leo");
+    $user1->setRoles(["ROLE_ADMIN"]);
+    $user1->setPassword('$2y$10$Ng0spKpKFXu8shdHYjbLXuQOmSLHOnVCFpDHHKDpKY6Er1UZ7hASm');
+    $manager->persist($user1);
+
+    $user2 = new User();
+    $user2->setUsername("thomas");
+    $user2->setRoles(["ROLE_USER"]);
+    $user2->setPassword('$2y$10$rc.L3oyLR26e4P/9GjPvo.rf5znoCs9JMLcftI0035ijKgVBEN8iS');
+    $manager->persist($user2);
+
+	$manager->flush();
 	}
 }	
