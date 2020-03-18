@@ -6,6 +6,10 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
+use App\Entity\User;
+use App\Form\UserType;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 class SecurityController extends AbstractController
 {
@@ -32,5 +36,28 @@ class SecurityController extends AbstractController
     public function logout()
     {
         throw new \Exception('This method can be blank - it will be intercepted by the logout key on your firewall');
+    }
+
+    /**
+     * @Route("/inscription", name="app_inscription")
+     */
+    public function inscription(Request $requete, UserPasswordEncoderInterface $encoder)
+    {
+        $user = new User();
+        $user->setRoles(["ROLE_USER"]);
+		$form = $this->CreateForm(UserType::class, $user);
+        $form->handleRequest($requete);
+        
+		// gestion de l'ajout du formulaire en BD
+		if($form->isSubmitted() && $form->isValid()){
+            $encoded = $encoder->encodePassword($user, $user->getPassword());
+            $user->setPassword($encoded);
+			$manager = $this->getDoctrine()->getManager();
+			$manager->persist($user);
+			$manager->flush();
+			return $this->redirectToRoute('pro_stages_accueil');
+		}
+		
+        return $this->render('pro_stages/nouveauUser.html.twig', ['vueFormulaire' => $form->createView()]);
     }
 }

@@ -1,6 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}Se connecter{% endblock %}
+{% block titresPage %}<h1><center>Se connecter</h1></center>{% endblock %}
 
 {% block contenu %}
 <div class="p-4">
@@ -11,12 +12,12 @@
     {% endif %}
 
     {% if app.user %}
-        <div class="mb-3">
+        <div class="alert alert-danger">
             Vous êtes déja connecté en tant que {{ app.user.username }}, <a href="{{ path('app_logout') }}">Se déconnecter</a>
         </div>
     {% endif %}
 
-    <h1 class="h3 mb-3 font-weight-normal">Veuillez vous connecter</h1>
+    <h1 class="h3 mb-3 font-weight-normal">Connexion</h1>
     <label for="inputUsername">Nom d'utilisateur</label>
     <input type="text" value="{{ last_username }}" name="username" id="inputUsername" class="form-control" required autofocus>
     <label for="inputPassword">Mot de passe</label>
@@ -39,6 +40,9 @@
     <div class="p-4">
     <button class="btn btn-lg btn-primary" type="submit">
         Se connecter
+    </button>
+    <button class="btn btn-lg btn-primary" type="button" onclick="window.location.href = 'inscription';">
+       Creer un compte
     </button>
     </div>
     </div>

@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block titresPage %}
+<h1><center>S'inscrire</center></h1>
+{% endblock %}
+{% block contenu %}
+<div class="p-4">
+<div class="p-4">
+<h1 class="h3 mb-3 font-weight-normal">Inscription</h1>
+{{ form_start(vueFormulaire, { 'attr' : {'novalidate':'novalidate'}} ) }}
+    {{ form_label(vueFormulaire.username, "Nom d'utilisateur") }}
+    {{ form_widget(vueFormulaire.username)}}
+    {{ form_label(vueFormulaire.password, "Mot de passe") }}
+    {{form_widget(vueFormulaire.password) }}
+    <div class="p-4">
+		<button class="btn btn-lg btn-primary" type="submit"> S'inscrire </button>
+    </div>
+	{{ form_end(vueFormulaire) }}
+</div>
+</div>
+{% endblock %}
