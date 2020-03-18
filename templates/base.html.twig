@@ -20,17 +20,25 @@
 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
 </button>
-<div class="collapse navbar-collapse" id="navbarText">
+<div class="collapse navbar-collapse justify-content-end" id="navbarText">
     <ul class="navbar-nav mr-auto">
     <li class="nav-item">
-        <a class="nav-link" href="/">Accueil<span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="/"><strong>Accueil</strong><span class="sr-only">(current)</span></a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="/formations">Liste des formations</a>
+        <a class="nav-link" href="/formations"><strong>Liste des formations</strong></a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="/entreprises">Liste des entreprises</a>
+        <a class="nav-link" href="/entreprises"><strong>Liste des entreprises</strong></a>
     </li>
+    {% if app.user %}
+    <li class="nav-item">
+        <span class="navbar-text">Connecté en tant que {{ app.user.username }}</span>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{{ path('app_logout') }}"><strong>Se déconnecter</strong></a>
+    </li>
+    {% endif %}
     </ul>
 </div>
 
