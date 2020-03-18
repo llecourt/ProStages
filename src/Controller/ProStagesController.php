@@ -22,7 +22,7 @@ class ProStagesController extends AbstractController
      */
     public function index(StageRepository $stageRepo)
     {
-        return $this->render('pro_stages/index.html.twig',["listeStages" => $stageRepo->findStagesEtEntreprises()]);
+        return $this->render('pro_stages/index.html.twig');
     }
 
     /**
@@ -55,14 +55,6 @@ class ProStagesController extends AbstractController
     public function afficherFormation($nom, StageRepository $stageRepo)
     {
         return $this->render('pro_stages/afficherStagesFormation.html.twig',["listeStages" => $stageRepo->findStagesFormation($nom)]);
-    }
-
-    /**
-     * @Route("/stage/{id}", name="pro_stages_stages")
-     */
-    public function afficherStage($id, StageRepository $stageRepo)
-    {
-        return $this->render('pro_stages/afficherStage.html.twig',['stage' => $stageRepo->find($id)]);
     }
 	
 	/**
@@ -101,25 +93,5 @@ class ProStagesController extends AbstractController
 		}
 		
     return $this->render('pro_stages/modifierEntreprise.html.twig',['vueFormulaire' => $formulaireEntreprise->createView()]);
-    }
-
-	/**
-     * @Route("/creer-stage", name="pro_stages_creer_stage")
-     */
-    public function creerStage(Request $requete)
-    {
-		$stage = new Stage();
-		$form = $this->CreateForm(StageType::class, $stage);
-        $form->handleRequest($requete);
-        
-		// gestion de l'ajout du formulaire en BD
-		if($form->isSubmitted() && $form->isValid()){
-			$manager = $this->getDoctrine()->getManager();
-			$manager->persist($stage);
-			$manager->flush();
-			return $this->redirectToRoute('pro_stages_accueil');
-		}
-		
-        return $this->render('pro_stages/nouveauStage.html.twig', ['vueFormulaire' => $form->createView()]);
     }
 }

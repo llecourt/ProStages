@@ -4,19 +4,34 @@
 <h1><center>Bienvenue sur Prostages</h1>
 {% endblock %}
 {% block contenu %}
-
-<div class="p-3">
-<p><center>Derniers stages ajoutées sur ProStages</center></p>
-<a href="/creer-stage"><input type="button" class="btn btn-primary" value="Creer un nouveau stage"></a>
+<div class="p-4">
+<h2><center>Naviguez sur le site web</center></h2>
 </div>
-
-{% for stage in listeStages %}
-    <div class="card">
-  	<div class="card-body">
-    <h5 class="card-title">{{stage.titre}} - {{stage.entreprise.nom}}</h5>
-    <p class="card-text">{{stage.description}}</p>
-    <a href="stage/{{stage.id}}" class="btn btn-primary">Consulter le stage</a>
+<div class="p-4">
+<div class="card">
+  <div class="card-body">
+    <center><h1 class="card-title">Liste des stages </h1></center>
+    <center><a href="stage" class="btn btn-primary">Consulter la liste des stages</a></center>
   </div>
 </div>
-{% endfor %}
+</div>
+<div class="p-4">
+<div class="row">
+<div class="col-md-6">
+<div class="card">
+  <div class="card-body">
+    <center><h1 class="card-title">Liste des entreprises proposant un stage </h1></center>
+    <center><a href="entreprises" class="btn btn-primary">Consulter la liste des entreprises</a></center>
+  </div>
+</div>
+</div>
+<div class="col-md-6">
+<div class="card">
+  <div class="card-body">
+    <center><h1 class="card-title">Liste des formations pour lesquelles un stage est proposé </h1></center>
+    <center><a href="formations" class="btn btn-primary">Consulter la liste des formations</a></center>
+  </div>
+</div>
+</div>
+</div>
 {% endblock %}

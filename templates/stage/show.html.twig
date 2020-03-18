@@ -1,38 +1,55 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}Stage{% endblock %}
-
-{% block body %}
-    <h1>Stage</h1>
-
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ stage.id }}</td>
-            </tr>
-            <tr>
-                <th>Titre</th>
-                <td>{{ stage.titre }}</td>
-            </tr>
-            <tr>
-                <th>Description</th>
-                <td>{{ stage.description }}</td>
-            </tr>
-            <tr>
-                <th>EmailContact</th>
-                <td>{{ stage.emailContact }}</td>
-            </tr>
-            <tr>
-                <th>Domaine</th>
-                <td>{{ stage.domaine }}</td>
-            </tr>
-        </tbody>
-    </table>
-
-    <a href="{{ path('stage_index') }}">back to list</a>
-
-    <a href="{{ path('stage_edit', {'id': stage.id}) }}">edit</a>
-
+{% block titresPage %}
+<h1><center>Stage</center></h1>
+{% endblock %}
+{% block contenu %}
+    <div class="p-3 border bg-light">
+    <div class="card">
+        <div class="card-title">
+        <div class="p-3 border bg-light">
+            <h3><strong> {{stage.titre}} </strong></h3>
+        </div>
+        </div>
+        <div class="card-body">
+            <h5><strong>Domaine :</strong> {{stage.domaine}} </h5>
+            <h5><strong>Description :</strong> {{stage.description}} </h5>
+            <h5><strong>Email de contact :</strong> {{stage.emailContact}} </h5>
+        </div>
+    </div>
+    </div>
+    <div class="p-3 border bg-light">
+    <div class="card">
+        <div class="card-title">
+        <div class="p-3 border bg-light">
+            <h3><strong> Formation </strong></h3>
+        </div>
+        </div>
+        <div class="card-body">
+            {% for formation in stage.formation %}
+            <h5>{{formation.nom}}</h5>
+            {% endfor %}
+        </div>
+    </div>
+    </div>
+    <div class="p-3 border bg-light">
+    <div class="card">
+        <div class="card-title">
+        <div class="p-3 border bg-light">
+            <h3><strong> Entreprise </strong></h3>
+        </div>
+        </div>
+        <div class="card-body">
+            <h5><a href="/entreprise/{{stage.entreprise.nom}}"> {{stage.entreprise.nom}} </a></h5>
+        </div>
+    </div>
+    <div class="p-1">
+    <a class="btn btn-primary" href="{{ path('stage_index') }}">Retour à la liste des stages</a>
+    <a class="btn btn-primary" href="{{ path('stage_edit', {'id': stage.id}) }}">Modifier</a>
+    </div>
+    <div class="p-1">
     {{ include('stage/_delete_form.html.twig') }}
+    </div>
+</div>
 {% endblock %}

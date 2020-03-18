@@ -1,44 +1,31 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Stage index{% endblock %}
+{% block title %}Liste des stages détaillée{% endblock %}
 
 {% block titresPage %}
-<h1>Stage index</h1>
+<h1><center>Liste des stages détaillée</center></h1>
 {% endblock %}
 {% block contenu %}
-    <h1>Stage index</h1>
-
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Titre</th>
-                <th>Description</th>
-                <th>EmailContact</th>
-                <th>Domaine</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for stage in stages %}
-            <tr>
-                <td>{{ stage.id }}</td>
-                <td>{{ stage.titre }}</td>
-                <td>{{ stage.description }}</td>
-                <td>{{ stage.emailContact }}</td>
-                <td>{{ stage.domaine }}</td>
-                <td>
-                    <a href="{{ path('stage_show', {'id': stage.id}) }}">show</a>
-                    <a href="{{ path('stage_edit', {'id': stage.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="6">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
-    <a href="{{ path('stage_new') }}">Create new</a>
+<div class="p-3">
+<a href="/new"><input type="button" class="btn btn-primary" value="Creer un nouveau stage"></a>
+</div>
+<div class="p-4">
+<div class="card-columns">
+{% for stage in stages %}
+<div class="card">
+  <div class="card-body">
+    <img class="card-img-top" src="https://lh3.googleusercontent.com/proxy/fKn_dhB_lhNy70RaQCUNm8ZR1RbdScOyKECSxb9h-6CdEXx0OKNeM-kmQi6fT1wEG5T6IojhNKjW39Om-iJzX1klge1VoslZ2-jJ0uhNgQssWezdoZmFyjCId3eXmNlnGxhOqnN3TaTZK60">
+    <h5 class="card-title">{{stage.titre}} - {{stage.entreprise.nom}}</h5>
+    <p class="card-text">{{stage.description}}</p>
+    <center>
+    <a href="{{stage.id}}" class="btn btn-primary">Consulter le stage</a>
+    <a href="{{stage.id}}/edit" class="btn btn-primary">Modifier le stage</a>
+    </center>
+  </div>
+</div>
+{% else %}
+no records found
+{% endfor %}
+</div>
+</div>
 {% endblock %}
