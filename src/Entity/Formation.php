@@ -24,7 +24,7 @@ class Formation
     private $nom;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Stage", mappedBy="formation")
+     * @ORM\ManyToMany(targetEntity="App\Entity\Stage", inversedBy="formation")
      */
     private $stages;
 
