@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des formations{% endblock %}
+
+{% block titresPage %}
+<h1><center>Liste des formations</center></h1>
+{% endblock %}
+{% block contenu %}
+<div class="p-3">
+<a href="/formation/new"><input type="button" class="btn btn-primary" value="Ajouter une nouvelle formation"></a>
+</div>
+<div class="p-4">
+<div class="card-columns">
+{% for formation in formations %}
+<div class="card">
+  <div class="card-body">
+    <center>
+    <h5 class="card-title">{{formation.nom}}</h5>
+    <div class="pt-1">
+    <a href="{{ path('formation_show', {'nom': formation.nom}) }}" class="btn btn-primary">Consulter les stages proposés par cette formation</a>
+    <div class="pt-1">
+    <a href="{{ path('formation_edit', {'id': formation.id}) }}" class="btn btn-primary">Modifier la formation</a>
+    </center>
+  </div>
+</div>
+{% else %}
+no records found
+{% endfor %}
+</div>
+</div>
+{% endblock %}
+

@@ -1,14 +1,11 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Liste des stages détaillée{% endblock %}
+{% block title %}Liste des stages proposé par une formation{% endblock %}
 
 {% block titresPage %}
-<h1><center>Liste des stages détaillée</center></h1>
+<h1><center>Liste des stages proposé par la formation {{ formation }}</center></h1>
 {% endblock %}
 {% block contenu %}
-<div class="p-3">
-<a href="/stage/new"><input type="button" class="btn btn-primary" value="Creer un nouveau stage"></a>
-</div>
 <div class="p-4">
 <div class="card-columns">
 {% for stage in stages %}
@@ -18,7 +15,7 @@
     <h5 class="card-title">{{stage.titre}} - {{stage.entreprise.nom}}</h5>
     <p class="card-text">{{stage.description}}</p>
     <center>
-    <a href="{{stage.id}}" class="btn btn-primary">Consulter le stage</a>
+    <a href="{{ path('stage_show', {'id': stage.id}) }}" class="btn btn-primary">Consulter le stage</a>
     </center>
   </div>
 </div>

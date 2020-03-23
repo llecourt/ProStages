@@ -6,14 +6,11 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Stage;
 use App\Entity\Entreprise;
-use App\Entity\Formation;
 use App\Repository\StageRepository;
-use App\Repository\FormationRepository;
 use App\Repository\EntrepriseRepository;
 use Symfony\Component\HttpFoundation\Request;
 use App\Form\EntrepriseType;
 use App\Form\StageType;
-use App\Form\FormationType;
 
 class ProStagesController extends AbstractController
 {
@@ -39,22 +36,6 @@ class ProStagesController extends AbstractController
     public function afficherEntreprise($nom, StageRepository $stageRepo)
     {
         return $this->render('pro_stages/afficherStagesEntreprise.html.twig',["listeStages" => $stageRepo->findStagesEntreprise($nom)]);
-    }
-
-    /**
-     * @Route("/formations", name="pro_stages_formations")
-     */
-    public function afficherFormations(FormationRepository $formationRepo)
-    {
-        return $this->render('pro_stages/afficherFormations.html.twig',["listeFormations" => $formationRepo->findAll()]);
-    }
-
-    /**
-     * @Route("/formation/{nom}", name="pro_stages_formation_en_particulier")
-     */
-    public function afficherFormation($nom, StageRepository $stageRepo)
-    {
-        return $this->render('pro_stages/afficherStagesFormation.html.twig',["listeStages" => $stageRepo->findStagesFormation($nom)]);
     }
 	
 	/**
